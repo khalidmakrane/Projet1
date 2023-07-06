@@ -3,7 +3,9 @@
 {% block title %}Users{% endblock %}
 
 {% block body %}
- <table class="table">
+<div class="container">
+<a href="{{path('create_user')}}" class="fa fa-user-plus" style="font-size:40px; color:green"></a>
+<table class="table">
   <thead>
     <tr>
       <th>ID</th>
@@ -21,8 +23,13 @@
         <td>{{ user.email }}</td>
         <td>{{ user.password }}</td>
         <td>{{ user.age }}</td>
+        <td><a href="{{ path('edit_user', {'id': user.id}) }}" class="fa fa-pencil" style="font-size:40px; color:green"></a></td>
+        <td><a href="{{ path('supprimer_user', {'id': user.id}) }}" class="fa fa-trash" style="font-size:40px; color:green"></a></td>
       </tr>
     {% endfor %}
   </tbody>
 </table>
+
+</div>
+ 
 {% endblock %}
